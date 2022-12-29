@@ -8,8 +8,16 @@ namespace FBCLikeOrNot.Controllers
 {
     public class ReactionController : Controller
     {
-        public IActionResult Index()
+        private Models.DB.db_a87bdd_fbcContext _context;
+
+        public ReactionController(Models.DB.db_a87bdd_fbcContext db)
         {
+            _context = db;
+        }
+        public IActionResult Index(String area, String device)
+        {
+            ///Reaction/Index?area=comedor&device=test
+            var test = _context.LikeReactions.ToList();
             return View();
         }
     }

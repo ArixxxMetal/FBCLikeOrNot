@@ -26,7 +26,8 @@ namespace FBCLikeOrNot
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<Models.DB.db_a87bdd_fbcContext>(options => {
+            services.AddDbContext<Models.DB.db_a87bdd_fbcContext>(options =>
+            {
                 options.UseSqlServer(Configuration.GetConnectionString("LikeOrNotDB"));
             });
         }
