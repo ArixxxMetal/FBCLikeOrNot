@@ -857,3 +857,4 @@ D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.cs
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.dll
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.pdb
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.genruntimeconfig.cache
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.csproj.AssemblyReference.cache

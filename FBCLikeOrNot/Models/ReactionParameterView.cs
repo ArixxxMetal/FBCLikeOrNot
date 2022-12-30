@@ -7,5 +7,7 @@ namespace FBCLikeOrNot.Models
 {
     public class ReactionParameterView
     {
+        public string area { get; set; }
+        public string device { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FBCLikeOrNot.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,13 @@ namespace FBCLikeOrNot.Controllers
         {
             ///Reaction/Index?area=comedor&device=test
             var test = _context.LikeReactions.ToList();
-            return View();
+
+            ReactionParameterView parameterView = new ReactionParameterView();
+
+            parameterView.area = area;
+            parameterView.device = device;
+
+            return View(parameterView);
         }
     }
 }
