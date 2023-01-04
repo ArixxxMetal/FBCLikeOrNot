@@ -1,17 +1,17 @@
 ﻿
+@model LoginAccessViewModel
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-@*<h1>Login</h1>*@
-<div class="app-contant">
-    <div class="bg-white comingsoon">
+<div class="app-contant" ng-app="LoginApp" ng-controller="LoginController">
+    <div class="bg-white">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-6 align-self-center bg-gradient">
                     <div class="d-flex align-items-center h-100-vh">
-                        <div class="comingsoon-wrap w-100">
+                        <div class=" w-100">
                             <div class="row no-gutters align-items-center justify-content-center">
                                 <div class="col-md-10 text-center m-b-40">
 
@@ -24,18 +24,18 @@
                                     <!-- newsletter -->
                                     <div class="row no-gutters">
                                         <div class="col-md-7 mx-auto">
-                                            <form action="/" class="px-5 mt-3">
+                                            <form asp-controller="Login" asp-action="Login" method="post" class="px-5 mt-3">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label class="control-label"><strong>Usuario*</strong></label>
-                                                            <input type="text" class="form-control bg-white-inverse" placeholder="Usuario">
+                                                            <input type="text" ng-model="NameModel" class="form-control bg-white-inverse" name="Username" asp-for="Username" placeholder="Usuario">
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label class="control-label"><strong>Contraseña*</strong></label>
-                                                            <input type="password" class="form-control bg-white-inverse" placeholder="Contraseña">
+                                                            <input type="password" ng-model="PasswordModel" class="form-control bg-white-inverse" name="Password" asp-for="Password" placeholder="Contraseña">
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -49,7 +49,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mt-3">
-                                                        <a href="index.html" class="btn btn-round btn-outline-light">Sign In</a>
+                                                        <button type="submit" class="btn btn-round btn-outline-light">Sign In</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -62,9 +62,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-end">
-                    <img class="img-fluid" src="assets/img/bg/coming-soon-bg.svg" alt="">
+                    <img class="img-fluid" src="~/Template/assets/img/bg/coming-soon-bg.svg" alt="" />
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section scripts {
+    <script src="~/App/Login/LoginApp.js"></script>
+
+}

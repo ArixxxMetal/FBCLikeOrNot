@@ -16,4 +16,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\LoginViewModels\" />
+    <Folder Include="Models\DB\" />
+    <Folder Include="wwwroot\App\Admin\" />
+    <Folder Include="wwwroot\App\Reaction\" />
+  </ItemGroup>
+
 </Project>
