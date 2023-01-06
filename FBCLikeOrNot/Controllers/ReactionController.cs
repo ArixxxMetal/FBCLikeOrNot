@@ -18,7 +18,7 @@ namespace FBCLikeOrNot.Controllers
         public IActionResult Index(String area, String device)
         {
             ///Reaction/Index?area=comedor&device=test
-            var test = _context.LikeReactions.ToList();
+            //var test = _context.LikeReactions.ToList();
 
             ReactionParameterView parameterView = new ReactionParameterView();
 

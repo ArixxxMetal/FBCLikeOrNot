@@ -8736,23 +8736,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Arisito\\.nuget\\packages\\": {},
+    "C:\\Users\\te-bautistaa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repositorios\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
+      "projectUniqueName": "C:\\Users\\te-bautistaa\\Videos\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
       "projectName": "FBCLikeOrNot",
-      "projectPath": "F:\\Repositorios\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
-      "packagesPath": "C:\\Users\\Arisito\\.nuget\\packages\\",
-      "outputPath": "F:\\Repositorios\\FBCLikeOrNot\\FBCLikeOrNot\\obj\\",
+      "projectPath": "C:\\Users\\te-bautistaa\\Videos\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
+      "packagesPath": "C:\\Users\\te-bautistaa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\te-bautistaa\\Videos\\FBCLikeOrNot\\FBCLikeOrNot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Arisito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\te-bautistaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8820,7 +8820,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }

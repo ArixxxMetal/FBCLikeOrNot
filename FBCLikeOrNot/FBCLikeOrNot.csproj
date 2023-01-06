@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\LoginViewModels\**" />
+    <Content Remove="Models\LoginViewModels\**" />
+    <EmbeddedResource Remove="Models\LoginViewModels\**" />
+    <None Remove="Models\LoginViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
@@ -17,8 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\LoginViewModels\" />
-    <Folder Include="Models\DB\" />
     <Folder Include="wwwroot\App\Admin\" />
     <Folder Include="wwwroot\App\Reaction\" />
   </ItemGroup>
