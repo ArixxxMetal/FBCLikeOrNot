@@ -38,7 +38,6 @@ namespace FBCLikeOrNot.Controllers
                 List<SessionUserViewModel> lst = new List<SessionUserViewModel>();
                 List<SessionUserViewModel> _LoggedUser = _context.GetLoginUserSP.FromSqlRaw("EXEC fbc.like_get_loginuservalues @PARAM_EMP_NUM, @PARAM_PASS", employeenumberParam, employeepasswordParam).ToList();
 
-
                 if (_LoggedUser[0].isallowed == true)
                 {
                     var claims = new List<Claim>

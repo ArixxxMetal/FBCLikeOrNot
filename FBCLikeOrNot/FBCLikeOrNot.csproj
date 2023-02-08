@@ -7,9 +7,17 @@
 
   <ItemGroup>
     <Compile Remove="Models\LoginViewModels\**" />
+    <Compile Remove="wwwroot\App\Admin\**" />
+    <Compile Remove="wwwroot\App\Reaction\**" />
     <Content Remove="Models\LoginViewModels\**" />
+    <Content Remove="wwwroot\App\Admin\**" />
+    <Content Remove="wwwroot\App\Reaction\**" />
     <EmbeddedResource Remove="Models\LoginViewModels\**" />
+    <EmbeddedResource Remove="wwwroot\App\Admin\**" />
+    <EmbeddedResource Remove="wwwroot\App\Reaction\**" />
     <None Remove="Models\LoginViewModels\**" />
+    <None Remove="wwwroot\App\Admin\**" />
+    <None Remove="wwwroot\App\Reaction\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,8 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\App\Admin\" />
-    <Folder Include="wwwroot\App\Reaction\" />
+    <Folder Include="wwwroot\App\Devices\" />
   </ItemGroup>
 
 </Project>

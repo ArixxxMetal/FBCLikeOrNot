@@ -1,5 +1,6 @@
 ﻿using System;
 using FBCLikeOrNot.Models.ParameterViewModels;
+using FBCLikeOrNot.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -31,6 +32,7 @@ namespace FBCLikeOrNot.Models.DB
         public virtual DbSet<LikeUserRolesServiceAccess> LikeUserRolesServiceAccesses { get; set; }
         public virtual DbSet<UserGrievance> UserGrievances { get; set; }
         public DbSet<SessionUserViewModel> GetLoginUserSP { get; set; }
+        public DbSet<GetUsersViewModel> GetUserListSP { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -42,6 +44,9 @@ namespace FBCLikeOrNot.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<GetUsersViewModel>();
+            modelBuilder.Entity<GetUsersViewModel>();  //register stored procedure.
+
             modelBuilder.Ignore<SessionUserViewModel>();
             modelBuilder.Entity<SessionUserViewModel>();  //register stored procedure.
 
