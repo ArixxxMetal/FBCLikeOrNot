@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/Template/assets/css/vendors.css" rel="stylesheet" />
     <link href="~/Template/assets/css/style.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
 </head>
 <body>
 
@@ -100,6 +101,7 @@
                                 </a>
                                 <ul aria-expanded="false">
                                     <li> <a href='/Admin/Users'>Usuarios</a> </li>
+                                    <li> <a href='/Admin/Services'>Servicios</a> </li>
                                     <li> <a href='/Reaction/Index?area=Comedor%20Azteca&device=test'>Reacciones</a> </li>
                                     <li> <a href='/Admin/Devices'>Dispositivos</a> </li>
                                 </ul>
@@ -122,7 +124,7 @@
             <footer class="footer">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-left">
-                        <p>&copy; Foxconn Baja California 2022</p>
+                        <p>&copy; Foxconn Baja California 2023</p>
                     </div>
                     <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
                         <p>Made With <i class="fa fa-heart text-danger mx-1"></i> By HR Developer</p>
@@ -136,6 +138,8 @@
     <!-- end app -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/Template/assets/js/vendors.js"></script>
     <script src="~/Template/assets/js/app.js"></script>
     <script src="~/App/Angularjs177.min.js"></script>

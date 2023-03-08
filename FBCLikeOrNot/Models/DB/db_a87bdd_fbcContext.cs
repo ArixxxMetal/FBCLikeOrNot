@@ -33,7 +33,11 @@ namespace FBCLikeOrNot.Models.DB
         public virtual DbSet<UserGrievance> UserGrievances { get; set; }
         public DbSet<SessionUserViewModel> GetLoginUserSP { get; set; }
         public DbSet<GetUsersViewModel> GetUserListSP { get; set; }
-
+        public DbSet<Sp_Return> AddUpdateReturnSP { get; set; }
+        public DbSet<like_add_set_update_return_sp> AddUpdateSetReturnSP { get; set; }
+        public DbSet<like_get_services_sp> GetServicesSP { get; set; }
+        public DbSet<like_get_devices_sp> GetDevicesSP { get; set; }
+        public DbSet<like_get_question_in_reaction_sp> GetQuestionReactionSP { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -49,6 +53,21 @@ namespace FBCLikeOrNot.Models.DB
 
             modelBuilder.Ignore<SessionUserViewModel>();
             modelBuilder.Entity<SessionUserViewModel>();  //register stored procedure.
+
+            modelBuilder.Ignore<Sp_Return>();
+            modelBuilder.Entity<Sp_Return>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_add_set_update_return_sp>();
+            modelBuilder.Entity<like_add_set_update_return_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_services_sp>();
+            modelBuilder.Entity<like_get_services_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_devices_sp>();
+            modelBuilder.Entity<like_get_devices_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_question_in_reaction_sp>();
+            modelBuilder.Entity<like_get_question_in_reaction_sp>();  //register stored procedure.
 
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 

@@ -1,53 +1,82 @@
-﻿@model ReactionParameterView 
+﻿@model IEnumerable<FBCLikeOrNot.Models.ViewModels.like_get_question_in_reaction_sp>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_ReactionLayout.cshtml";
 }
 
 <br />
-<div class="row text-center">
-    <div class="col-xl-12 col-sm-10">
-        <h1>@Model.area</h1>
-        <p>@Model.device</p>
+<div></div>
+<div ng-app="ReactionApp" ng-controller="ReactionController">
+    <div class="row text-center">
+        <div class="col-xl-12 col-sm-10">
+            @foreach (var device in Model)
+            {
+                <div class="row">
+                    <div class="col-4"><h4>@device.Nameservice</h4></div>
+                    <div class="col-4"><h2>@device.QuestionService</h2></div>
+                    <div class="col-4"><P>@device.Namedevice</P></div>
+                </div>
+
+                <div class="col-4" hidden><p id="device_id">@device.Iddevice</p></div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        @*<div class="col-xl-4 col-sm-6">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="text-center p-2">
+                            <div class="mb-2">
+                                <button type="button" class="custombutton customsuccess"><i class="fa fa-smile-o" style="font-size: 1.90em;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-sm-6">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="text-center p-2">
+                            <div class="mb-2">
+                                <button type="button" class="custombutton customwarning"><i class="fa fa-meh-o" style="font-size: 1.90em;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-sm-6">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="text-center p-2">
+                            <div class="mb-2">
+                                <button type="button" class="custombutton customdanger"><i class="fa fa-frown-o" style="font-size: 1.90em;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="col-xl-4 col-sm-6" ng-repeat="reaction in ReactionList">
+            <div class="card card-statistics">
+                <div class="card-body" ng-click="SetLogReaction(reaction)">
+                    <div class="text-center p-2">
+                        <div class="mb-2">
+                            <button type="button" ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
+                                <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.90em;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xl-4 col-sm-6">
-        <div class="card card-statistics">
-            <div class="card-body">
-                <div class="text-center p-2">
-                    <div class="mb-2">
-                        <button type="button" class="custombutton customsuccess"><i class="fa fa-smile-o" style="font-size: 1.90em;"></i></button>
-                        @*<div class="custombutton customsuccess"><i class="fa fa-smile-o" style="font-size: 3.0em;"></i></div>*@
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@section scripts {
 
-    <div class="col-xl-4 col-sm-6">
-        <div class="card card-statistics">
-            <div class="card-body">
-                <div class="text-center p-2">
-                    <div class="mb-2">
-                        <button type="button" class="custombutton customwarning"><i class="fa fa-meh-o" style="font-size: 1.90em;"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-4 col-sm-6">
-        <div class="card card-statistics">
-            <div class="card-body">
-                <div class="text-center p-2">
-                    <div class="mb-2">
-                        <button type="button" class="custombutton customdanger"><i class="fa fa-frown-o" style="font-size: 1.90em;"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
+    <script src="~/App/Reaction/ReactionApp.js"></script>
+}

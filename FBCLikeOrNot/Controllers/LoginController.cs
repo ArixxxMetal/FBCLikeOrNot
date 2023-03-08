@@ -36,7 +36,8 @@ namespace FBCLikeOrNot.Controllers
                 var employeepasswordParam = new SqlParameter("@PARAM_PASS", _User.Password);
 
                 List<SessionUserViewModel> lst = new List<SessionUserViewModel>();
-                List<SessionUserViewModel> _LoggedUser = _context.GetLoginUserSP.FromSqlRaw("EXEC fbc.like_get_loginuservalues @PARAM_EMP_NUM, @PARAM_PASS", employeenumberParam, employeepasswordParam).ToList();
+                List<SessionUserViewModel> _LoggedUser = _context.GetLoginUserSP.FromSqlRaw
+                    ("EXEC fbc.like_get_loginuservalues @PARAM_EMP_NUM, @PARAM_PASS", employeenumberParam, employeepasswordParam).ToList();
 
                 if (_LoggedUser[0].isallowed == true)
                 {
@@ -48,7 +49,7 @@ namespace FBCLikeOrNot.Controllers
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("Dashboard", "Admin");
+                    return RedirectToAction("Services", "Admin");
                 }
                 else
                 {

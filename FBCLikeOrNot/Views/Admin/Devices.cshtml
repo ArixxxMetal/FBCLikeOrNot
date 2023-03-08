@@ -3,43 +3,55 @@
     ViewData["Title"] = "Devices";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
-<div class="container-fluid">
+@section Styles {
+    <!-- Custom CSS -->
+    <link href="~/css/ServicesCustomCSS.css" rel="stylesheet" />
+}
+<div class="container-fluid" ng-app="DeviceApp" ng-controller="DeviceController">
 
     <!-- begin row -->
     <div class="col-12">
-        <div class="card card-statistics">
-            <div class="card-body">
-                <div class="row">
-                    <div class="dropdown">
-                        <input type="text" class="form-control form-control-sm" placeholder="Search Device">
+        <!-- begin View Title -->
+        <div class="row">
+            <div class="col-md-12 m-b-30">
+                <div class="d-block d-lg-flex flex-nowrap align-items-center">
+                    <div class="page-title mr-2 pr-4 border-right"><h1>Dispositivos</h1></div>
+
+                    <div class="d-flex align-items-center secondary-menu text-center">
+                        <a title="Nuevo Dispositivo" ng-click="ShowAddNewDeviceModal()">
+                            <i class="fe fe-feather btn btn-icon text-primary"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center secondary-menu text-center" style="margin-left:1%">
+                        <input type="text" name="name" ng-model="SrchString" class="form-control" placeholder="Busqueda General" />
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End View Title -->
         <div class="card card-statistics">
-            <div class="card-header">
-                <div class="card-heading"><h4 class="card-title">Lista De Dispositivos</h4></div>
-            </div>
             <div class="card-body">
                 <div class="table-responsive table-hover">
                     <table class="table mb-0">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Area</th>
+
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Servicio (Area)</th>
                                 <th scope="col">Es Activo</th>
+                                <th scope="col">Creado Por</th>
                                 <th scope="col">Fecha De Creacion</th>
+                                <th scope="col">Url</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>Comedor Azteca</td>
-                                <td>Test</td>
-                                <td>True</td>
-                                <td>15/01/2023</td>
+                        <tbody ng-repeat="device in DeviceList | filter: SrchString">
+                            <tr ng-dblclick="ShowUpdateModal(device)">
+                                <th>{{ device.namedevice }}</th>
+                                <td>{{ device.nameservice }}</td>
+                                <td class="text-center"><i class="{{ device.isactivedevice ? 'fa fa-check-square text-success': 'fa fa-times-rectangle text-danger' }} "></i></td>
+                                <td>{{ device.createbydevice }}</td>
+                                <td>{{ device.createdatedevice | date: 'dd MMM, yyyy  hh:mm a' }}</td>
+                                <td><a href="{{ device.url_reaction }}">{{ device.url_reaction }}</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -48,5 +60,89 @@
         </div>
     </div>
     <!-- end row -->
+    <!-- begin New Service modal -->
+    <div id="js_CreateDevice" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Agregar Nuevo Dispositivo</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="js_CreateDeviceForm" class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label>Preguntas Creadas</label>
+                            <select class="form-control" ng-model="add_service_id" ng-change="UnlockAddInputs()" ng-options="c.idservice as c.nameservice for c in ServiceList">
+                                <option value="" disabled>-- All --</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Nombre Servicio (Area)</label>
+                            <input type="text" name="jv_name_service_add" ng-model="add_device_name" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label>Creado Por</label>
+                            <input type="text" name="jv_create_by_add" ng-model="add_create_by" class="form-control" disabled/>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="AddNewDevice()">Agregar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end New Service Modal -->
+    <!-- begin Update Service modal -->
+    <div id="js_UpdateDevice" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Actualizar Dispositivo</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="js_UpdateDeviceForm" class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label>Nombre Dispositivo</label>
+                            <input type="text" name="jv_name_service_update" ng-model="update_device_name" class="form-control" />
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label>Creado Por</label>
+                            <input type="text" name="jv_create_by_update" ng-model="update_create_by" class="form-control" disabled />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label>Pregunta Del Area</label>
+                            <input type="text" name="jv_description_question_update" ng-model="update_description_question" class="form-control" />
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="UpdateSelectedDevice()">Create</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end Update Service Modal -->
+
 </div>
+@section scripts {
+    <script src="~/App/Devices/DevicesApp.js"></script>
+    @*<script src="~/App/Services/ServicesApp.js"></script>*@
+}
 
