@@ -105,6 +105,20 @@ app.controller("DeviceController", function ($scope, $http) {
             debugger
             $scope.AddDeviceResponse = response.data;
             console.log($scope.AddDeviceResponse);
+            if (response.data[0].was_done == true) {
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Informacion Guardada',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+
+            }
+            else {
+
+            }
+
             GetAllDevices();
             $('#js_CreateDevice').modal('hide');
 
@@ -135,6 +149,20 @@ app.controller("DeviceController", function ($scope, $http) {
             debugger
             $scope.UpdateDeviceResponse = response.data;
             console.log($scope.UpdateDeviceResponse);
+            if (response.data[0].was_done == true) {
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Informacion Guardada',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+
+            }
+            else {
+
+            }
+
             GetAllDevices();
             $('#js_UpdateDevice').modal('hide');
 

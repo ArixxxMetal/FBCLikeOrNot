@@ -54,6 +54,22 @@ namespace FBCLikeOrNot.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetTotalReactions()
+        {
+            try
+            {
+                List<like_get_reaction_percentage_by_service_sp> _response = _context.GetReactionPercentageSP.FromSqlRaw
+                ("EXEC fbc.like_get_reaction_percentage_by_service").ToList();
+                return Json(_response);
+            }
+            catch (Exception ex)
+            {
+                var ExceptionResponse = ex.Message;
+                return Json(ExceptionResponse);
+            }
+        }
+
+        [HttpPost]
         public JsonResult GetQuestioninReaction([FromBody] like_get_question_in_reaction_param_sp _Get_Question_In_Reaction_Sp)
         {
             try

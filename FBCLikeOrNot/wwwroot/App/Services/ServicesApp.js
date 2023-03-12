@@ -124,8 +124,21 @@ app.controller("ServiceController", function ($scope, $http) {
                 debugger
                 $scope.ServiceResponse = response.data;
                 console.table($scope.ServiceResponse);
-                GetAllServices()
-                GetAllQuestions()
+                GetAllServices();
+                GetAllQuestions();
+                if (response.data[0].was_done == true) {
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Informacion Guardada',
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+
+                }
+                else {
+
+                }
 
             }, function errorCallBack(response) {
                 console.error("Error updating database");
@@ -155,8 +168,22 @@ app.controller("ServiceController", function ($scope, $http) {
                 debugger
                 $scope.ServiceResponse = response.data;
                 console.table($scope.ServiceResponse);
-                GetAllServices()
-                GetAllQuestions()
+                GetAllServices();
+                GetAllQuestions();
+
+                if (response.data[0].was_done == true) {
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Informacion Guardada',
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+
+                }
+                else {
+
+                }
 
             }, function errorCallBack(response) {
                 console.error("Error updating database");
@@ -184,6 +211,22 @@ app.controller("ServiceController", function ($scope, $http) {
             debugger
             $scope.QuestionDevice = response.data;
             console.log($scope.QuestionDevice);
+
+            GetAllServices();
+            GetAllQuestions();
+            if (response.data[0].was_done == true) {
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Informacion Guardada',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+
+            }
+            else {
+
+            }
 
         }, function errorCallBack(response) {
             console.error("Error get data");

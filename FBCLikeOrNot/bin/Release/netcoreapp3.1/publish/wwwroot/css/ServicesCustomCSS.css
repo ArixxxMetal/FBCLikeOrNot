@@ -1,0 +1,11 @@
+﻿body {
+}
+
+label {
+    color:black
+}
+
+.error {
+    color: red;
+    background-color: #acf;
+}

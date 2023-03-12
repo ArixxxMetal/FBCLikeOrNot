@@ -1704,6 +1704,7 @@ C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\F
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.RazorCoreGenerate.cache
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Dashboard.cshtml.g.cs
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Devices.cshtml.g.cs
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Services.cshtml.g.cs
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Users.cshtml.g.cs
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -1724,4 +1725,3 @@ C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\F
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.dll
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.pdb
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.genruntimeconfig.cache
-C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Services.cshtml.g.cs

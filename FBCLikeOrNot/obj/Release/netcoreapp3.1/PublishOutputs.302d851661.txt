@@ -1,7 +1,12 @@
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\FBCLikeOrNot.exe
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Angularjs177.min.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Dashboard\DashboardApp.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Devices\DevicesApp.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Login\LoginApp.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Reaction\ReactionApp.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Services\ServicesApp.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Users\UsersApp.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\ServicesCustomCSS.css
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\CustomReactionCSS.css

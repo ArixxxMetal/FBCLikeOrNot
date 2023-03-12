@@ -432,3 +432,4 @@ C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\FBCLikeOrNot.dll
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\FBCLikeOrNot.pdb
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\FBCLikeOrNot.genruntimeconfig.cache
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\Razor\Views\Admin\Services.cshtml.g.cs

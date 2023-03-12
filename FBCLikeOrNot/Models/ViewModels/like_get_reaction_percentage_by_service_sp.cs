@@ -14,8 +14,8 @@ namespace FBCLikeOrNot.Models.ViewModels
         public int NeutralTotalReactions { get; set; }
         public int BadTotalReactions { get; set; }
         public int TotalReactions { get; set; }
-        public float GoodPercentage { get; set; }
-        public float NeutralPercentage { get; set; }
-        public float BadPercentage { get; set; }
+        public double GoodPercentage { get; set; }
+        public double NeutralPercentage { get; set; }
+        public double BadPercentage { get; set; }
     }
 }

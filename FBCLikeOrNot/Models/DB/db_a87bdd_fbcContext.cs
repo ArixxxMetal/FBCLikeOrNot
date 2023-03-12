@@ -38,6 +38,7 @@ namespace FBCLikeOrNot.Models.DB
         public DbSet<like_get_services_sp> GetServicesSP { get; set; }
         public DbSet<like_get_devices_sp> GetDevicesSP { get; set; }
         public DbSet<like_get_question_in_reaction_sp> GetQuestionReactionSP { get; set; }
+        public DbSet<like_get_reaction_percentage_by_service_sp> GetReactionPercentageSP { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -48,6 +49,9 @@ namespace FBCLikeOrNot.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<like_get_reaction_percentage_by_service_sp>();
+            modelBuilder.Entity<like_get_reaction_percentage_by_service_sp>();  //register stored procedure.
+
             modelBuilder.Ignore<GetUsersViewModel>();
             modelBuilder.Entity<GetUsersViewModel>();  //register stored procedure.
 

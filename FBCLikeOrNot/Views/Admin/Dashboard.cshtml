@@ -4,52 +4,60 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <!-- begin row -->
-    <div class="row">
-        <div class="col-md-12 m-b-30">
-            <!-- begin page title -->
-            <div class="d-block d-sm-flex flex-nowrap align-items-center">
+<div class="container-fluid" ng-app="DashboardApp" ng-controller="DashboardController">
+    <div class="col-12">
 
-                <div class="page-title mb-2 mb-sm-0">
-                    <h1>Default Buttons</h1>
-                </div>
-                <div class="ml-auto d-flex align-items-center">
-                    <nav>
-                        <ol class="breadcrumb p-0 m-b-0">
-                            <li class="breadcrumb-item active text-primary" aria-current="page">Default Buttons</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-            <!-- end page title -->
-        </div>
-    </div>
-    <!-- end row -->
-    <!-- begin row -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card card-statistics">
-                <div class="card-header">
-                    <div class="card-heading"><h4 class="card-title">Rounded Button</h4></div>
-                </div>
-                <div class="card-body button-list">
-                    <div class="pb-2 border-bottom">
-                        <a href="javascript:void(0);" class="btn btn-primary">Primary</a>
-                        <a href="javascript:void(0);" class="btn btn-secondary">Secondary</a>
-                        <a href="javascript:void(0);" class="btn btn-info">Info</a>
-                        <a href="javascript:void(0);" class="btn btn-warning">Warning</a>
-                        <a href="javascript:void(0);" class="btn btn-danger">Danger</a>
-                        <a href="javascript:void(0);" class="btn btn-success">Success</a>
-                        <a href="javascript:void(0);" class="btn btn-light">Light</a>
-                        <a href="javascript:void(0);" class="btn btn-dark">Dark</a>
+        <!-- begin View Title -->
+        <div class="row">
+            <div class="col-md-12 m-b-30">
+                <div class="d-block d-lg-flex flex-nowrap align-items-center">
+                    <div class="page-title mr-2 pr-4 border-right"><h1>Reacciones Por Area</h1></div>
+
+                    <div class="d-flex align-items-center secondary-menu text-center" style="margin-left:1%">
+                        <input type="text" name="name" ng-model="SrchString" class="form-control" placeholder="Busqueda General" />
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- End View Title -->
 
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="table-responsive table-hover table-borderless">
+                    <table class="table mb-0">
+                        <thead class="bg-primary" style="color:aliceblue">
+                            <tr>
+                                <th scope="col">Area</th>
+                                <th scope="col">Like Reaction</th>
+                                <th scope="col">Meh Reaction</th>
+                                <th scope="col">Bad Reaction</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Porcentaje Like</th>
+                                <th scope="col">Porcentaje Meh</th>
+                                <th scope="col">Porcentaje Bad</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="reaction in TotalReactionList | filter: SrchString">
+                            <tr>
+                                <th>{{ reaction.nameservice }}</th>
+                                <th>{{ reaction.goodTotalReactions }}</th>
+                                <td>{{ reaction.neutralTotalReactions }}</td>
+                                <td>{{ reaction.badTotalReactions }}</td>
+                                <td>{{ reaction.totalReactions }}</td>
+                                <td>{{ reaction.goodPercentage }} %</td>
+                                <td>{{ reaction.neutralPercentage }} %</td>
+                                <td>{{ reaction.badPercentage }} %</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-    <!-- end row -->
+
 </div>
+@section scripts {
+    <script src="~/App/Dashboard/DashboardApp.js"></script>
+}
 
 
