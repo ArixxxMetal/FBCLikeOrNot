@@ -1725,3 +1725,6 @@ C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\F
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.dll
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.pdb
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\FBCLikeOrNot.genruntimeconfig.cache
+F:\Repositorios\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Devices.cshtml.g.cs
+F:\Repositorios\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Services.cshtml.g.cs
+F:\Repositorios\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Users.cshtml.g.cs

@@ -70,6 +70,25 @@ namespace FBCLikeOrNot.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetTotalReactionsByRangeDate([FromBody] like_get_reaction_percentage_by_daterange_param_sp _Get_Reaction_Percentage_By_Daterange_Param_Sp)
+        {
+            try
+            {
+                var begin_date = new SqlParameter("@PARAM_BEGIN_DATE", _Get_Reaction_Percentage_By_Daterange_Param_Sp.PARAM_BEGIN_DATE);
+                var end_date = new SqlParameter("@PARAM_END_DATE", _Get_Reaction_Percentage_By_Daterange_Param_Sp.PARAM_END_DATE);
+
+                List<like_get_reaction_percentage_by_service_sp> _response = _context.GetReactionPercentageSP.FromSqlRaw
+                ("EXEC fbc.like_get_reaction_percentage_by_daterange @PARAM_BEGIN_DATE, @PARAM_END_DATE", begin_date, end_date).ToList();
+                return Json(_response);
+            }
+            catch (Exception ex)
+            {
+                var ExceptionResponse = ex.Message;
+                return Json(ExceptionResponse);
+            }
+        }
+
+        [HttpPost]
         public JsonResult GetQuestioninReaction([FromBody] like_get_question_in_reaction_param_sp _Get_Question_In_Reaction_Sp)
         {
             try
