@@ -14,12 +14,12 @@
         <div class="row">
             <div class="col-md-12 m-b-30">
                 <div class="d-block d-lg-flex flex-nowrap align-items-center">
-                    <div class="page-title mr-2 pr-4 border-right"><h1>Reacciones Por Area</h1></div>
+                    <div class="page-title mr-2 pr-4 border-right"><h1>Reacciones Por Area <i class="fa fa-bar-chart text-primary"></i></h1></div>
 
                     <div class="d-flex align-items-center secondary-menu text-center" style="margin-left:1%">
                         <input type="text" name="name" ng-model="SrchString" class="form-control" placeholder="Busqueda General" />
                     </div>
-                    <div class="d-flex align-items-center secondary-menu text-center" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                    <div class="mr-2 pr-4 border-right text-primary" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
                         <i class="fa fa-calendar"></i>&nbsp;
                         <span></span> <i class="fa fa-caret-down"></i>
                     </div>
@@ -30,7 +30,7 @@
 
         <div class="card card-statistics">
             <div class="card-body">
-                <div class="table-responsive table-hover table-borderless">
+                <div class="table table-responsive table-hover table-borderless">
                     <table class="table mb-0">
                         <thead class="bg-primary" style="color:aliceblue">
                             <tr>
@@ -62,7 +62,10 @@
         </div>
         <div class="card card-statistics">
 
-            <zingchart id="myChart" zc-json="myJson" zc-width="100%"></zingchart>
+            @*<zingchart id="myChart" zc-json="myJson" zc-width="100%"></zingchart>*@
+            <div class="apexchart-wrapper">
+                <div id="apexgraph"></div>
+            </div>
 
         </div>
     </div>

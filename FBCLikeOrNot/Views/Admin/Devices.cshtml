@@ -15,12 +15,12 @@
         <div class="row">
             <div class="col-md-12 m-b-30">
                 <div class="d-block d-lg-flex flex-nowrap align-items-center">
-                    <div class="page-title mr-2 pr-4 border-right"><h1>Dispositivos</h1></div>
+                    <div class="page-title mr-2 pr-4 border-right"><h1>Dispositivos <i class="fa fa-tablet text-info"></i></h1></div>
 
-                    <div class="d-flex align-items-center secondary-menu text-center">
-                        <a title="Nuevo Dispositivo" ng-click="ShowAddNewDeviceModal()">
-                            <i class="fe fe-feather btn btn-icon text-primary"></i>
-                        </a>
+                    <div class="d-flex align-items-center text-center">
+                        <button class="btn btn-icon btn-inverse-success" title="Nuevo Dispositivo" ng-click="ShowAddNewDeviceModal()">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                     <div class="d-flex align-items-center secondary-menu text-center" style="margin-left:1%">
                         <input type="text" name="name" ng-model="SrchString" class="form-control" placeholder="Busqueda General" />
@@ -31,11 +31,10 @@
         <!-- End View Title -->
         <div class="card card-statistics">
             <div class="card-body">
-                <div class="table-responsive table-hover">
+                <div class="table table-responsive table-borderless table-hover">
                     <table class="table mb-0">
-                        <thead class="thead-dark">
+                        <thead class="bg-info" style="color:aliceblue">
                             <tr>
-
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Servicio (Area)</th>
                                 <th scope="col">Es Activo</th>
@@ -45,13 +44,13 @@
                             </tr>
                         </thead>
                         <tbody ng-repeat="device in DeviceList | filter: SrchString">
-                            <tr ng-dblclick="ShowUpdateModal(device)">
+                            <tr class="table-light" ng-dblclick="ShowUpdateModal(device)">
                                 <th>{{ device.namedevice }}</th>
                                 <td>{{ device.nameservice }}</td>
                                 <td class="text-center"><i class="{{ device.isactivedevice ? 'fa fa-check-square text-success': 'fa fa-times-rectangle text-danger' }} "></i></td>
                                 <td>{{ device.createbydevice }}</td>
                                 <td>{{ device.createdatedevice | date: 'dd MMM, yyyy  hh:mm a' }}</td>
-                                <td><a href="{{ device.url_reaction }}">{{ device.url_reaction }}</a></td>
+                                <td><a class="text-primary" href="{{ device.url_reaction }}">{{ device.url_reaction }}</a></td>
                             </tr>
                         </tbody>
                     </table>

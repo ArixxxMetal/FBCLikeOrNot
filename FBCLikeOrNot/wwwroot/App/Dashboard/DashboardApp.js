@@ -34,7 +34,7 @@ app.controller("DashboardController", function ($scope, $http) {
 
     function GetTotalReactionList() {
         // Call Fields validation 
-
+        $scope.TotalReactionList = "";
         // start httpRequest 
         $http({
             method: "POST",
@@ -61,13 +61,116 @@ app.controller("DashboardController", function ($scope, $http) {
 
             }
 
-            GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad)
+            //GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad)
+            GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad)
 
         }, function errorCallBack(response) {
             console.error("Error get data");
             console.log(response.data);
         })
         // end httpRequest
+    }
+
+    function GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad) {
+
+        var arr = [totalgood, totalneutral, totalbad];
+        var maxRow = arr.map(function (row) { return Math.max.apply(Math, row); });
+        var maxvalue = Math.max.apply(null, maxRow);
+        debugger
+        //Get max Value for 'Y'
+        let i = 0;
+        do {
+            i = i + 1;
+            maxvalue = maxvalue + i;
+        } while (maxvalue % 10 === 0);
+
+        debugger
+
+        //chart.render();
+        var apexChart = jQuery(".apexchart-wrapper");
+        if (apexChart.length > 0) {
+            var colorPalette = ['#00D8B6', '#008FFB', '#FEB019', '#FF4560', '#775DD0']
+
+            // analytics1
+            var apexdemo1 = jQuery('#apexgraph')
+            if (apexdemo1.length > 0) {
+                var options = {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        shadow: {
+                            enabled: true,
+                            color: '#000',
+                            top: 18,
+                            left: 7,
+                            blur: 10,
+                            opacity: 1
+                        },
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    colors: ['#20c997', '#ffc107', '#dc3545'],
+                    dataLabels: {
+                        enabled: true,
+                    },
+                    stroke: {
+                        curve: 'smooth'
+                    },
+                    series: [{
+                        name: "Good",
+                        data: totalgood
+                    },
+                    {
+                        name: "Neutral",
+                        data: totalneutral
+                    },
+                    {
+                        name: "Bad",
+                        data: totalbad
+                    }
+                    ],
+                    grid: {
+                        borderColor: '#e7e7e7',
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                        },
+                    },
+                    markers: {
+
+                        size: 6
+                    },
+                    xaxis: {
+                        categories: areaname,
+                        title: {
+                            text: 'Area (Service)'
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Total'
+                        },
+                        min: 0,
+                        max: maxvalue
+                    },
+                    legend: {
+                        position: 'top',
+                        horizontalAlign: 'right',
+                        floating: true,
+                        offsetY: -25,
+                        offsetX: -5
+                    }
+                }
+
+                var chart = new ApexCharts(
+                    document.querySelector("#apexgraph"),
+                    options
+                );
+
+                chart.render();
+            }
+        }
     }
 
     function GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad) {
@@ -196,6 +299,7 @@ app.controller("DashboardController", function ($scope, $http) {
             PARAM_BEGIN_DATE: $scope.startdate,
             PARAM_END_DATE: $scope.enddate
         }
+        $scope.TotalReactionList = "";
         // start httpRequest 
         $http({
             method: "POST",
@@ -221,7 +325,8 @@ app.controller("DashboardController", function ($scope, $http) {
                 totalbad.push(response.data[i].badTotalReactions);
             }
 
-            GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad)
+            //GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad)
+            GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad)
 
         }, function errorCallBack(response) {
             console.error("Error get data");

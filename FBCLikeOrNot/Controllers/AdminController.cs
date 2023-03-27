@@ -2,6 +2,7 @@
 //using FBCLikeOrNot.Models.DB;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace FBCLikeOrNot.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
 

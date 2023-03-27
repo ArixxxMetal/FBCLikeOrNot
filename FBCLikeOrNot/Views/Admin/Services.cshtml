@@ -17,10 +17,10 @@
                 <div class="d-block d-lg-flex flex-nowrap align-items-center">
                     <div class="page-title mr-2 pr-4 border-right"><h1>Servicios (Areas)</h1></div>
 
-                    <div class="d-flex align-items-center secondary-menu text-center">
-                        <a title="Nuevo Servicio" ng-click="ShowAddNewServiceModal()">
-                            <i class="fe fe-feather btn btn-icon text-primary"></i>
-                        </a>
+                    <div class="d-flex align-items-center text-center">
+                        <button class="btn btn-icon btn-inverse-success" title="Nuevo Servicio" ng-click="ShowAddNewServiceModal()">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                     <div class="d-flex align-items-center secondary-menu text-center" style="margin-left:1%">
                         <input type="text" name="name" ng-model="SrchString" class="form-control" placeholder="Busqueda General" />
@@ -46,10 +46,10 @@
                         </thead>
                         <tbody ng-repeat="service in ServiceList | filter: SrchString">
                             <tr ng-dblclick="ShowUpdateModal(service)">
-                                <th><button class="btn btn-info" ng-click="ShowSetQuestionModal(service)"><i class="fe fe-activity "></i></button></th>
+                                <th><button class="btn btn-icon btn-inverse-primary" ng-click="ShowSetQuestionModal(service)"><i class="fa fa-pencil"></i></button></th>
                                 <th>{{ service.nameservice }}</th>
                                 <td>{{ service.questionservice }}</td>
-                                <td><i class="{{ service.isactiveservice ? 'dashicons dashicons-businessman text-success': 'dashicons dashicons-no' }} "></i></td>
+                                <td><i class="{{ service.isactiveservice ? 'fa fa-check-square text-success': 'fa fa-check-square text-danger' }} "></i></td>
                                 <td>{{ service.createbyservice }}</td>
                                 <td>{{ service.createdateservice | date: 'dd MMM, yyyy  hh:mm a' }}</td>
                             </tr>
