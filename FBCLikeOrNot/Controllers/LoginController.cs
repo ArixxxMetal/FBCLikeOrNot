@@ -11,6 +11,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace FBCLikeOrNot.Controllers
 {
@@ -27,13 +29,32 @@ namespace FBCLikeOrNot.Controllers
             return View();
         }
 
+        public static string EncriptPass(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Convertir la contraseña en una matriz de bytes
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Convertir la matriz de bytes en una cadena hexadecimal
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginAccessViewModel _User)
         {
             try
             {
+                string pass = EncriptPass(_User.Password);
                 var employeenumberParam = new SqlParameter("@PARAM_EMP_NUM", _User.Username);
-                var employeepasswordParam = new SqlParameter("@PARAM_PASS", _User.Password);
+                var employeepasswordParam = new SqlParameter("@PARAM_PASS", pass);
 
                 List<SessionUserViewModel> lst = new List<SessionUserViewModel>();
                 List<SessionUserViewModel> _LoggedUser = _context.GetLoginUserSP.FromSqlRaw
@@ -70,6 +91,12 @@ namespace FBCLikeOrNot.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Login");
+        }
+
+        public string TEST()
+        {
+            string pass = EncriptPass("123456");
+            return pass;
         }
     }
 
