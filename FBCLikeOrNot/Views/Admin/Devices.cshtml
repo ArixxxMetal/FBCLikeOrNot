@@ -73,13 +73,13 @@
                     <form id="js_CreateDeviceForm" class="row">
 
                         <div class="form-group col-lg-6">
-                            <label>Preguntas Creadas</label>
+                            <label>Asignar Servicio (Area)</label>
                             <select class="form-control" ng-model="add_service_id" ng-change="UnlockAddInputs()" ng-options="c.idservice as c.nameservice for c in ServiceList">
-                                <option value="" disabled>-- All --</option>
+                                <option value="" disabled>-- Seleccionar --</option>
                             </select>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label>Nombre Servicio (Area)</label>
+                            <label>Nombre Del Dispositivo</label>
                             <input type="text" name="jv_name_service_add" ng-model="add_device_name" class="form-control" />
                         </div>
 
@@ -111,22 +111,20 @@
 
                 <div class="modal-body">
                     <form id="js_UpdateDeviceForm" class="row">
-
                         <div class="form-group col-lg-6">
                             <label>Nombre Dispositivo</label>
                             <input type="text" name="jv_name_service_update" ng-model="update_device_name" class="form-control" />
                         </div>
 
                         <div class="form-group col-lg-6">
-                            <label>Creado Por</label>
-                            <input type="text" name="jv_create_by_update" ng-model="update_create_by" class="form-control" disabled />
-                        </div>
-
-                        <div class="form-group col-lg-12">
                             <label>Pregunta Del Area</label>
                             <input type="text" name="jv_description_question_update" ng-model="update_description_question" class="form-control" />
                         </div>
 
+                        <div class="form-group col-lg-12">
+                            <label>Creado Por</label>
+                            <input type="text" name="jv_create_by_update" ng-model="update_create_by" class="form-control" disabled />
+                        </div>
                     </form>
                 </div>
 

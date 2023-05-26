@@ -1,5 +1,6 @@
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\FBCLikeOrNot.exe
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Angularjs177.min.js
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Angularjs188.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Dashboard\DashboardApp.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Devices\DevicesApp.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\App\Login\LoginApp.js
@@ -9,6 +10,11 @@ C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\ServicesCustomCSS.css
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Img\fbc_logo_black.png
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Img\fbc_logo_blue.png
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Img\fbc_logo_white.png
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Img\Like Or Not.png
+C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Img\likeornot_small.png
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\CustomReactionCSS.css
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
 C:\Users\te-bautistaa\Videos\FBCLikeOrNot\FBCLikeOrNot\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

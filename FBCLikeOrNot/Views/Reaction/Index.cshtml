@@ -8,13 +8,13 @@
 <div></div>
 <div ng-app="ReactionApp" ng-controller="ReactionController">
     <div class="row text-center">
-        <div class="col-xl-12 col-sm-10">
+        <div class="col-12">
             @foreach (var device in Model)
             {
                 <div class="row">
-                    <div class="col-4"><h4>@device.Nameservice</h4></div>
+                    <div class="col-4"><h4>Area: @device.Nameservice</h4></div>
                     <div class="col-4"><h2>@device.QuestionService</h2></div>
-                    <div class="col-4"><P>@device.Namedevice</P></div>
+                    <div class="col-4"><h4>Dispositivo: @device.Namedevice</h4></div>
                 </div>
 
                 <div class="col-4" hidden><p id="device_id">@device.Iddevice</p></div>
@@ -23,16 +23,13 @@
     </div>
 
     <div class="row">
-
-        <div class="col-xl-4 col-sm-6" ng-repeat="reaction in ReactionList">
+        <div class="col-4" ng-repeat="reaction in ReactionList">
             <div class="card card-statistics">
                 <div class="card-body" ng-click="SetLogReaction(reaction)">
-                    <div class="text-center p-2">
-                        <div class="mb-2">
-                            <button type="button" ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
-                                <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.90em;"></i>
-                            </button>
-                        </div>
+                    <div class="text-center">                  
+                        <button type="button" ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
+                            <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
+                        </button>                 
                     </div>
                 </div>
             </div>

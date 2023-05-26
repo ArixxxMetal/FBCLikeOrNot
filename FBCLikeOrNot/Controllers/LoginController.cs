@@ -93,11 +93,6 @@ namespace FBCLikeOrNot.Controllers
             return RedirectToAction("Index", "Login");
         }
 
-        public string TEST()
-        {
-            string pass = EncriptPass("123456");
-            return pass;
-        }
     }
 
 

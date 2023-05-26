@@ -19,11 +19,22 @@ app.controller("ServiceController", function ($scope, $http) {
 
 
     $scope.SelectQuestion = function () {
-        debugger
+        
         $scope.selected_description_question = $scope.dropdown_question;
     }
 
+    $scope.SelectQuestionAdd = function () {
+        
+        $scope.add_description_question = $scope.dropdown_question;
+    }
+
+    $scope.SelectQuestionUpdate = function () {
+
+        $scope.update_description_question = $scope.dropdown_question;
+    }
+
     $scope.ShowAddNewServiceModal = function () {
+        $scope.dropdown_question = null;
         $scope.add_description_question = "";
         $scope.add_service_name = "";
         $scope.add_create_by = "";
@@ -32,8 +43,9 @@ app.controller("ServiceController", function ($scope, $http) {
     }
 
     $scope.ShowUpdateModal = function (_service) {
+        $scope.dropdown_question = null;
         $scope.update_service_id = _service.idservice;
-        $scope.update_description_question = _service.descriptionquestion;
+        $scope.update_description_question = _service.questionservice;
         $scope.update_service_name = _service.nameservice;
         $scope.update_create_by = _service.createbyservice;
 
@@ -41,6 +53,7 @@ app.controller("ServiceController", function ($scope, $http) {
     }
 
     $scope.ShowSetQuestionModal = function (_service) {
+        $scope.dropdown_question = null;
         $scope.set_question_service_id = _service.idservice;
         //.set_question_description_question = _service.descriptionquestion;
         //$scope.set_question_service_name = _service.nameservice;

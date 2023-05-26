@@ -73,10 +73,10 @@
                 <div class="modal-body">
                     <form id="js_SetQuestionForm" class="row">
 
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-12">
                             <label>Preguntas Creadas</label>
                             <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestion()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
-                                <option value="" disabled>-- All --</option>
+                                <option value="" disabled>-- Seleccionar --</option>
                             </select>
                         </div>
 
@@ -118,6 +118,18 @@
                             <input type="text" name="jv_create_by_add" ng-model="add_create_by" class="form-control" />
                         </div>
 
+                        @*<div class="form-group col-lg-12">
+                            <label>Pregunta Del Area</label>
+                            <input type="text" name="jv_description_question_add" ng-model="add_description_question" class="form-control" />
+                        </div>*@
+
+                        <div class="form-group col-lg-12">
+                            <label>Preguntas Creadas</label>
+                            <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestionAdd()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
+                                <option value="" disabled>-- Seleccionar --</option>
+                            </select>
+                        </div>
+
                         <div class="form-group col-lg-12">
                             <label>Pregunta Del Area</label>
                             <input type="text" name="jv_description_question_add" ng-model="add_description_question" class="form-control" />
@@ -155,6 +167,18 @@
                         <div class="form-group col-lg-6">
                             <label>Creado Por</label>
                             <input type="text" name="jv_create_by_update" ng-model="update_create_by" class="form-control" disabled />
+                        </div>
+
+                        @*<div class="form-group col-lg-12">
+                            <label>Pregunta Del Area</label>
+                            <input type="text" name="jv_description_question_update" ng-model="update_description_question" class="form-control" />
+                        </div>*@
+
+                        <div class="form-group col-lg-12">
+                            <label>Preguntas Creadas</label>
+                            <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestionUpdate()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
+                                <option value="" disabled>-- Seleccionar --</option>
+                            </select>
                         </div>
 
                         <div class="form-group col-lg-12">

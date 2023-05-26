@@ -12,6 +12,7 @@ app.controller("DeviceController", function ($scope, $http) {
 
     $scope.NameModel = "";
     $scope.PasswordModel = "";
+    $scope.add_service_id = null;
 
     $scope.Access = function () {
         LoginAccess()
@@ -19,7 +20,7 @@ app.controller("DeviceController", function ($scope, $http) {
 
     $scope.ShowAddNewDeviceModal = function () {
         
-        $scope.add_service_id = "";
+        $scope.add_service_id = null;
         $scope.add_device_name = "";
         $scope.add_create_by = "";
 
@@ -75,7 +76,7 @@ app.controller("DeviceController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: {}
         }).then(function (response) {
-            debugger
+            
             $scope.ServiceList = response.data;
             console.log($scope.ServiceList);
 
@@ -88,7 +89,7 @@ app.controller("DeviceController", function ($scope, $http) {
 
     function AddDevice() {
         // Call Fields validation 
-        debugger
+        
         Data = {
             PARAM_DEVICE_NAME: $scope.add_device_name,
             PARAM_SERVICE_ID: $scope.add_service_id,
@@ -102,7 +103,7 @@ app.controller("DeviceController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: Data
         }).then(function (response) {
-            debugger
+            
             $scope.AddDeviceResponse = response.data;
             console.log($scope.AddDeviceResponse);
             if (response.data[0].was_done == true) {
