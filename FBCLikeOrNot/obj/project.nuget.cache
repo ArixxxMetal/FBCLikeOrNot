@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OoVCDTciqVT6Z8fORbywKBNx0esYvm3rXGnPCwJoEyy+tTVxCJUYjpAIApTeOiagyLKNwFG9m21WDDrW3PEkAA==",
+  "dgSpecHash": "+wiIo0iSSkx8eG9L5sLHciUcEZRjTxrvKNRkn6e5bZisUA/bQnp4ZQQBT0D6PG0kYDDjzOJXGAznqMQyLyabbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\te-bautistaa\\Videos\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
+  "projectFilePath": "D:\\HR Projects\\FBCLikeOrNot\\FBCLikeOrNot\\FBCLikeOrNot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\te-bautistaa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\te-bautistaa\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
@@ -164,7 +164,8 @@
     "C:\\Users\\te-bautistaa\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\te-bautistaa\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\te-bautistaa\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\te-bautistaa\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\te-bautistaa\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\te-bautistaa\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],
   "logs": []
 }

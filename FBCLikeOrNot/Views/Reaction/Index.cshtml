@@ -13,7 +13,7 @@
             {
                 <div class="row">
                     <div class="col-4"><h4>Area: @device.Nameservice</h4></div>
-                    <div class="col-4"><h2>@device.QuestionService</h2></div>
+                    <div class="col-4" id="question_area"><h2>@device.QuestionService</h2></div>
                     <div class="col-4"><h4>Dispositivo: @device.Namedevice</h4></div>
                 </div>
 
@@ -21,13 +21,15 @@
             }
         </div>
     </div>
-
+    <br />
+    <br />
+    <br />
     <div class="row">
         <div class="col-4" ng-repeat="reaction in ReactionList">
             <div class="card card-statistics">
                 <div class="card-body" ng-click="SetLogReaction(reaction)">
                     <div class="text-center">                  
-                        <button type="button" ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
+                        <button ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
                             <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
                         </button>                 
                     </div>

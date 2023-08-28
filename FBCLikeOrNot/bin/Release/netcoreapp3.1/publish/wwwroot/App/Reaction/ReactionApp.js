@@ -73,7 +73,7 @@ app.controller("ReactionController", function ($scope, $http) {
             debugger
             $scope.QuestionDevice = response.data;
             console.log($scope.QuestionDevice);
-
+            //document.getElementById('question_area').focus()
             if (response.data[0].was_done == true) {
                 Swal.fire({
                     position: 'top',
@@ -83,22 +83,6 @@ app.controller("ReactionController", function ($scope, $http) {
                     timer: 1000
                 })
 
-                //const Toast = Swal.mixin({
-                //    toast: true,
-                //    position: 'top',
-                //    showConfirmButton: false,
-                //    timer: 3000,
-                //    timerProgressBar: true,
-                //    didOpen: (toast) => {
-                //        toast.addEventListener('mouseenter', Swal.stopTimer)
-                //        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                //    }
-                //})
-
-                //Toast.fire({
-                //    icon: 'success',
-                //    title: 'Muchas Gracias Por participar! ;)'
-                //})
             }
             else {
 
@@ -128,8 +112,17 @@ app.controller("ReactionController", function ($scope, $http) {
         setTimeout(function () { window.location.reload(true); }, timeout);
     }
 
+    refreshAt(6, 26, 0);
+    refreshAt(7, 26, 0);
+    refreshAt(8, 26, 0);
+    refreshAt(9, 26, 0);
     refreshAt(10, 26, 0);
-    refreshAt(10, 26, 10);
-    refreshAt(10, 26, 20);
-    refreshAt(10, 26, 30);
+    refreshAt(11, 26, 0);
+    refreshAt(12, 26, 0);
+    refreshAt(13, 26, 0);
+    refreshAt(14, 26, 0);
+    refreshAt(15, 26, 0);
+    refreshAt(16, 26, 0);
+    refreshAt(17, 26, 0);
+    refreshAt(18, 26, 0);
 });
