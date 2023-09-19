@@ -70,17 +70,20 @@ app.controller("ReactionController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: Data
         }).then(function (response) {
-            debugger
+            
             $scope.QuestionDevice = response.data;
             console.log($scope.QuestionDevice);
             //document.getElementById('question_area').focus()
             if (response.data[0].was_done == true) {
                 Swal.fire({
-                    position: 'top',
+                    position: 'center',
+                    width: 600,
                     icon: 'success',
-                    title: 'Muchas Gracias Por participar! ;)',
+                    title: 'Muchas Gracias Por Participar!',
+                    imageUrl: '/img/Reactions/blink_reaction.gif',
+                    imageWidth: 300,
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 1500,
                 })
 
             }
