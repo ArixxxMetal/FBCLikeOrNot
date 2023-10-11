@@ -9,5 +9,6 @@ namespace FBCLikeOrNot.Models.Sp_Parameters
     {
         public int PARAM_DEVICE_ID { get; set; }
         public int PARAM_REACTION_ID { get; set; }
+        public int PARAM_QUESTION_LOG_ID { get; set; }
     }
 }

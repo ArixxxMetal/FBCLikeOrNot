@@ -95,10 +95,19 @@
                         <ul class="metismenu " id="sidebarNav">
                             <li class="nav-static-title">Like Or Not</li>
                             <li>
+                                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon fa fa-bar-chart"></i><span class="nav-title">Gráficas</span> </a>
+                                <ul aria-expanded="false">
+                                    <li> <a href="/Admin/Dashboard">Reacciones Por Area</a> </li>
+                                    <li> <a href="/Admin/DevicesGraph">Reacciones Por Dispositivo</a>  </li>
+                                    <li> <a href="/Admin/QuestionsGraph">Preguntas Por Area</a>  </li>
+                                    <li> <a href="/Admin/QuestionDevicesGraph">Preguntas Por Dispositivo</a>  </li>
+                                </ul>
+                            </li>
+                          @*<li>
                                 <a href="/Admin/Dashboard" aria-expanded="false">
                                     <i class="nav-icon fa fa-bar-chart"></i><span class="nav-title">Estadistica</span>
                                 </a>
-                            </li>
+                            </li>*@
                             <li>
                                 <a href="/Admin/Services" aria-expanded="false">
                                     <i class="nav-icon fa fa-gears"></i><span class="nav-title">Servicios</span>
@@ -109,6 +118,17 @@
                                     <i class="nav-icon fa fa-tablet"></i><span class="nav-title">Dispositivos</span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon fa fa-question"></i><span class="nav-title">Preguntas</span> </a>
+                                <ul aria-expanded="false">
+                                    <li> <a href="/Admin/Questions">Asignar Preguntas</a> </li>
+                                </ul>
+                            </li>
+                            @*<li>
+                                <a href="/Admin/Questions" aria-expanded="false">
+                                    <i class="nav-icon fa fa-question"></i><span class="nav-title">Preguntas</span>
+                                </a>
+                            </li>*@
                             <li>
                                 <a href="/Admin/Users" aria-expanded="false">
                                     <i class="nav-icon fa fa-user"></i><span class="nav-title">Usuarios</span>
@@ -151,7 +171,6 @@
     <script src="~/Template/assets/js/vendors.js"></script>
     <script src="~/Template/assets/js/app.js"></script>
     <script src="~/App/Angularjs188.js"></script>
-    @*<script src="~/App/Angularjs177.min.js"></script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

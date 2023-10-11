@@ -84,7 +84,7 @@ app.controller("ServiceController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: {}
         }).then(function (response) {
-            debugger
+            
             $scope.ServiceList = response.data;
             console.table($scope.ServiceList);
 
@@ -106,7 +106,7 @@ app.controller("ServiceController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: {}
         }).then(function (response) {
-            debugger
+            
             $scope.QuestionList = response.data;
             console.table($scope.QuestionList);
 
@@ -178,7 +178,7 @@ app.controller("ServiceController", function ($scope, $http) {
                 headers: { 'Content-Type': 'application/json;charset=utf-8' },
                 data: Data
             }).then(function (response) {
-                debugger
+                
                 $scope.ServiceResponse = response.data;
                 console.table($scope.ServiceResponse);
                 GetAllServices();
@@ -221,7 +221,7 @@ app.controller("ServiceController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: Data
         }).then(function (response) {
-            debugger
+            
             $scope.QuestionDevice = response.data;
             console.log($scope.QuestionDevice);
 

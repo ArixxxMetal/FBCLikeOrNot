@@ -1,6 +1,19 @@
 ﻿
 body {
     font-family: 'Montserrat', sans-serif;
+    animation: transitionIn 1.0s;
+}
+
+@keyframes transitionIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .font_gray {
@@ -215,7 +228,7 @@ body {
         background: var(--clr-neon-warning);
         color: white;
         box-shadow: 0 0 50px var(--clr-neon-warning), 0 0 100px var(--clr-neon-warning), 0 0 200px var(--clr-neon-warning), 0 0 400px var(--clr-neon-warning);
-        /*-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);*/
+
     }
 
         .button_warning:active::before {
@@ -225,17 +238,11 @@ body {
     .button_warning:hover,
     .button_warning:focus {
         outline: none;
-        /*        color: var(--clr-bg);
-        background: var(--clr-neon-success);
-        text-shadow: none;*/
     }
 
         .button_warning:hover::before,
         .button_warning:focus::before {
             outline: none;
-            /*            opacity: 1;
-            transform: perspective(1em) rotateX(40deg) scale(1.5, 0.6);
-            transition: transform 0.5s linear;*/
         }
 
         .button_warning:hover::after,
@@ -264,10 +271,6 @@ body {
         background: var(--clr-neon-danger);
         color: white;
         box-shadow: 0 0 50px var(--clr-neon-danger), 0 0 100px var(--clr-neon-danger), 0 0 200px var(--clr-neon-danger), 0 0 400px var(--clr-neon-danger);
-        /*-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);*/
-        /*        opacity: 1;
-        transform: perspective(1em) rotateX(40deg) scale(1.5, 0.6);
-        transition: transform 0.5s linear;*/
     }
 
         .button_danger:active::before {
@@ -292,4 +295,23 @@ body {
 .header_bg {
     background: rgb(15,53,91);
     background: linear-gradient(180deg, rgba(15,53,91,1) 0%, rgba(15,45,103,1) 48%, rgba(1,38,86,1) 100%);
+}
+
+
+
+/* Define the CSS animation */
+@keyframes slide_left_animation {
+    0% {
+        opacity: 0;
+        transform: translateY(-1200px);
+    }
+
+    100% {       
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide_left_animation {
+    animation: slide_left_animation 0.75s ease-in;
 }

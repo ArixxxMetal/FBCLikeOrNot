@@ -25,6 +25,21 @@ namespace FBCLikeOrNot.Controllers
             return View();
         }
 
+        public IActionResult DevicesGraph()
+        {
+            return View();
+        }
+
+        public IActionResult QuestionsGraph()
+        {
+            return View();
+        }
+
+        public IActionResult QuestionDevicesGraph()
+        {
+            return View();
+        }
+
         public IActionResult Devices()
         {
             return View();
@@ -39,5 +54,11 @@ namespace FBCLikeOrNot.Controllers
         {
             return View();
         }
+
+        public IActionResult Questions()
+        {
+            return View();
+        }
+
     }
 }

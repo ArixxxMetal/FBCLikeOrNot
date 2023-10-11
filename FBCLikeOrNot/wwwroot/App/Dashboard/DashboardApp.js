@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module("DashboardApp", ['zingchart-angularjs']);
+var app = angular.module("DashboardApp", []);
 
 app.controller("DashboardController", function ($scope, $http) {
 
@@ -12,7 +12,7 @@ app.controller("DashboardController", function ($scope, $http) {
     $scope.service_name = "";
     $scope.device_name = "";
     $scope.myJson = "";
-
+    $scope.TotalReactionList = [];
 
     $scope.ShowAddNewDeviceModal = function () {
         $scope.add_description_question = "";
@@ -34,7 +34,7 @@ app.controller("DashboardController", function ($scope, $http) {
 
     function GetTotalReactionList() {
         // Call Fields validation 
-        $scope.TotalReactionList = "";
+        $scope.TotalReactionList = [];
         // start httpRequest 
         $http({
             method: "POST",
@@ -44,7 +44,7 @@ app.controller("DashboardController", function ($scope, $http) {
         }).then(function (response) {
 
             $scope.TotalReactionList = response.data;
-            console.log($scope.TotalReactionList);
+            //console.log($scope.TotalReactionList);
             //GetQuestion()
 
             var areaname = new Array();
@@ -76,7 +76,7 @@ app.controller("DashboardController", function ($scope, $http) {
         var arr = [totalgood, totalneutral, totalbad];
         var maxRow = arr.map(function (row) { return Math.max.apply(Math, row); });
         var maxvalue = Math.max.apply(null, maxRow);
-        debugger
+        
         //Get max Value for 'Y'
         let i = 0;
         do {
@@ -84,7 +84,7 @@ app.controller("DashboardController", function ($scope, $http) {
             maxvalue = maxvalue + i;
         } while (maxvalue % 10 === 0);
 
-        debugger
+        
 
         //chart.render();
         var apexChart = jQuery(".apexchart-wrapper");
@@ -285,13 +285,14 @@ app.controller("DashboardController", function ($scope, $http) {
     var end = moment();
 
     function GetTotalReactionListByDate(start, end) {
+        $scope.TotalReactionList = [];
         $('#reportrange span').html(start.format('DD D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         console.log("Start: " + start.format('DD-MM-YYYY') + " End: " + end.format('DD-MM-YYYY') + " ")
 
         $scope.js_startdate = start;
         $scope.js_enddate = end;
 
-        debugger
+        
         $scope.startdate = start.format('YYYY-MM-DD');
         $scope.enddate = end.format('YYYY-MM-DD');
 
@@ -324,9 +325,9 @@ app.controller("DashboardController", function ($scope, $http) {
                 totalneutral.push(response.data[i].neutralTotalReactions);
                 totalbad.push(response.data[i].badTotalReactions);
             }
-
             //GenerateJsonGraph(areaname, totalgood, totalneutral, totalbad)
-            GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad)
+            GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad);
+            GenerateJsonGraphApex(areaname, totalgood, totalneutral, totalbad);
 
         }, function errorCallBack(response) {
             console.error("Error get data");

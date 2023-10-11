@@ -4,67 +4,69 @@
     Layout = "~/Views/Shared/_ReactionLayout.cshtml";
 }
 
-
-<div></div>
-<div></div>
-<div></div>
-<div ng-app="ReactionApp" ng-controller="ReactionController">
-    <div class="row text-center header_bg">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="col-12">
-            @foreach (var device in Model)
-            {
+<div ng-app="ReactionApp" ng-controller="ReactionController" >
+    <div id="myFlipCard">
+        <div class="row text-center header_bg">
+            <br /><br /><br /><br /><br />
+            <div class="col-12">
                 <div class="row" style="margin-top: 20px;">
-                    <div class="col-4"><h4 style="margin-top: 30px; color:white;" class="font_poppings">AREA: @device.Nameservice</h4></div>
-                    <div class="col-4" id="question_area"><h2 class="font_poppings" style="color:white;">@device.QuestionService</h2></div>
-                    <div class="col-4"><h4 style="margin-top: 30px; color:white;" class="font_poppings">DISPOSITIVO: @device.Namedevice</h4></div>
-                </div>
-
-                <div class="col-4" hidden><p id="device_id" class="font_poppings">@device.Iddevice</p></div>
-            }
-        </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="row">
-@*        <div class="col-4" ng-repeat="reaction in ReactionList">
-            <div class="card card-statistics">
-                <div class="card-body" ng-click="SetLogReaction(reaction)">
-                    <div class="text-center">
-                        <button ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
-                            <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
-                        </button>
+                    <div class="col-4">
+                        <h4 style="color:white;" class="font_poppings"></h4>
                     </div>
-                </div>
-            </div>
-        </div>*@
-        <div class="col-4" ng-repeat="reaction in ReactionList">
-            <div class="card card-statistics">
-                <div class="card-body" ng-click="SetLogReaction(reaction)">
-                    <div class="text-center">
-                        <button ng-class="{'button_success': reaction.namereaction == 'GOOD', 'button_warning': reaction.namereaction == 'NEUTRAL', 'button_danger': reaction.namereaction == 'BAD'}">
-                            <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
-                        </button>
+                    <div class="col-4" id="question_area">
+                        <h2 class="font_poppings" style="color:white;">
+                            {{ QuestionTitle }}
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <h1 style="color:white;" class="font_poppings">{{ current_question_assigned_length }} / {{ QuestionAssignedList.length }}</h1>
                     </div>
                 </div>
             </div>
         </div>
-
-        <br />
-        <br />
-        <div class="col-12 text-center" >
-             <img class="img-fluid" style="max-width: 250px;" src="~/img/like or not.png" />
-
+        <br /><br /><br />
+        <div class="row">
+            @*        <div class="col-4" ng-repeat="reaction in ReactionList">
+            <div class="card card-statistics">
+            <div class="card-body" ng-click="SetLogReaction(reaction)">
+            <div class="text-center">
+            <button ng-class="{'custombutton customsuccess': reaction.namereaction == 'GOOD', 'custombutton customwarning': reaction.namereaction == 'NEUTRAL', 'custombutton customdanger': reaction.namereaction == 'BAD'}">
+            <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
+            </button>
+            </div>
+            </div>
+            </div>
+            </div>*@
+            <div class="col-4" ng-repeat="reaction in ReactionList">
+                <div class="card card-statistics">
+                    <div class="card-body" ng-click="SetLogReaction(reaction)">
+                        <div class="text-center">
+                            <button ng-class="{'button_success': reaction.namereaction == 'GOOD', 'button_warning': reaction.namereaction == 'NEUTRAL', 'button_danger': reaction.namereaction == 'BAD'}">
+                                <i ng-class="{'fa fa-smile-o': reaction.namereaction == 'GOOD', 'fa fa-meh-o': reaction.namereaction == 'NEUTRAL', 'fa fa-frown-o': reaction.namereaction == 'BAD'}" style="font-size: 1.80em;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
         </div>
+        <div class="row text-center">
+            <div class="col-12">
+                @foreach (var device in Model)
+                {
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-4"><h4 style="margin-top: 30px; color:black;" class="font_poppings">AREA: @device.Nameservice</h4></div>
+                        <div class="col-4"><img class="img-fluid" style="max-width: 250px;" src="~/img/like or not.png" /></div>
+                        <div class="col-4"><h4 style="margin-top: 30px; color:black;" class="font_poppings">DISPOSITIVO: @device.Namedevice</h4></div>
+                    </div>
 
+                    <div class="col-12" hidden><p id="device_id" class="font_poppings">@device.Iddevice</p></div>
+                    <div class="col-12" hidden><p id="service_id" class="font_poppings">@device.Id_service</p></div>
+                }
+            </div>
+        </div>
+    </div>   
 
-
-    </div>
 </div>
 
 @section scripts {

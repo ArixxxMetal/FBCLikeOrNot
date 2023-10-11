@@ -1736,3 +1736,7 @@ D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\staticwebassets
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.FBCLikeOrNot.props
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.FBCLikeOrNot.props
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.FBCLikeOrNot.props
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Questions.cshtml.g.cs
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DevicesGraph.cshtml.g.cs
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\QuestionsGraph.cshtml.g.cs
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\QuestionDevicesGraph.cshtml.g.cs
