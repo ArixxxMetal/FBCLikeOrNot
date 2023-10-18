@@ -40,7 +40,11 @@ namespace FBCLikeOrNot.Models.DB
         public DbSet<like_get_question_in_reaction_sp> GetQuestionReactionSP { get; set; }
         public DbSet<like_get_reaction_percentage_by_service_sp> GetReactionPercentageSP { get; set; }
         public DbSet<like_get_multiple_questions_sp> GetMultipleQuestionSP { get; set; }
-
+        public DbSet<like_get_devices_by_area_graph_sp> GetGraphByDeviceSP { get; set; }
+        public DbSet<like_get_questions_by_area_graph_sp> GetGraphByQuestionAreaSP { get; set; }
+        public DbSet<like_get_questions_by_device_graph_sp> GetGraphByQuestionDeviceSP { get; set; }
+        public DbSet<like_get_device_by_service_id> GetDevicesByServiceIdSP { get; set; }
+        public DbSet<like_get_reaction_records_by_service_id_sp> GetReactionRecordsByServiceIdSP { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -52,6 +56,21 @@ namespace FBCLikeOrNot.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<like_get_reaction_records_by_service_id_sp>();
+            modelBuilder.Entity<like_get_reaction_records_by_service_id_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_device_by_service_id>();
+            modelBuilder.Entity<like_get_device_by_service_id>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_questions_by_device_graph_sp>();
+            modelBuilder.Entity<like_get_questions_by_device_graph_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_questions_by_area_graph_sp>();
+            modelBuilder.Entity<like_get_questions_by_area_graph_sp>();  //register stored procedure.
+
+            modelBuilder.Ignore<like_get_devices_by_area_graph_sp>();
+            modelBuilder.Entity<like_get_devices_by_area_graph_sp>();  //register stored procedure.
+
             modelBuilder.Ignore<like_get_multiple_questions_sp>();
             modelBuilder.Entity<like_get_multiple_questions_sp>();  //register stored procedure.
 

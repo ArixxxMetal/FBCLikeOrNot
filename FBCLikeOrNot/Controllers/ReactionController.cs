@@ -134,7 +134,7 @@ namespace FBCLikeOrNot.Controllers
                 var end_date = new SqlParameter("@PARAM_END_DATE", _Set_Graph_Param_Sp.PARAM_END_DATE);
                 var service_id = new SqlParameter("@PARAM_SERVICE_ID", _Set_Graph_Param_Sp.PARAM_SERVICE_ID);
 
-                List<like_add_set_update_return_sp> _response = _context.AddUpdateSetReturnSP.FromSqlRaw
+                List<like_get_devices_by_area_graph_sp> _response = _context.GetGraphByDeviceSP.FromSqlRaw
                 ("EXEC [fbc].[like_get_devices_by_area_graph] @PARAM_BEGIN_DATE, @PARAM_END_DATE, @PARAM_SERVICE_ID", begin_date, end_date, service_id).ToList();
                 return Json(_response);
             }
@@ -151,9 +151,10 @@ namespace FBCLikeOrNot.Controllers
             {
                 var begin_date = new SqlParameter("@PARAM_BEGIN_DATE", _Set_Graph_Param_Sp.PARAM_BEGIN_DATE);
                 var end_date = new SqlParameter("@PARAM_END_DATE", _Set_Graph_Param_Sp.PARAM_END_DATE);
+                var service_id = new SqlParameter("@PARAM_SERVICE_ID", _Set_Graph_Param_Sp.PARAM_SERVICE_ID);
 
-                List<like_add_set_update_return_sp> _response = _context.AddUpdateSetReturnSP.FromSqlRaw
-                ("EXEC [fbc].[like_get_questions_by_area_graph] @PARAM_BEGIN_DATE, @PARAM_END_DATE", begin_date, end_date).ToList();
+                List<like_get_questions_by_area_graph_sp> _response = _context.GetGraphByQuestionAreaSP.FromSqlRaw
+                ("EXEC [fbc].[like_get_questions_by_area_graph] @PARAM_BEGIN_DATE, @PARAM_END_DATE, @PARAM_SERVICE_ID", begin_date, end_date, service_id).ToList();
                 return Json(_response);
             }
             catch (Exception ex)
@@ -169,10 +170,29 @@ namespace FBCLikeOrNot.Controllers
             {
                 var begin_date = new SqlParameter("@PARAM_BEGIN_DATE", _Set_Graph_Param_Sp.PARAM_BEGIN_DATE);
                 var end_date = new SqlParameter("@PARAM_END_DATE", _Set_Graph_Param_Sp.PARAM_END_DATE);
+                var device_id = new SqlParameter("@PARAM_DEVICE_ID", _Set_Graph_Param_Sp.PARAM_DEVICE_ID);
+
+                List<like_get_questions_by_device_graph_sp> _response = _context.GetGraphByQuestionDeviceSP.FromSqlRaw
+                ("EXEC [fbc].[like_get_questions_by_device_graph] @PARAM_BEGIN_DATE, @PARAM_END_DATE, @PARAM_DEVICE_ID", begin_date, end_date, device_id).ToList();
+                return Json(_response);
+            }
+            catch (Exception ex)
+            {
+                var ExceptionResponse = ex.Message;
+                return Json(ExceptionResponse);
+            }
+        }
+
+        public JsonResult GetReactionRecordByArea([FromBody] like_get_graph_param_sp _Set_Graph_Param_Sp)
+        {
+            try
+            {
+                var begin_date = new SqlParameter("@PARAM_BEGIN_DATE", _Set_Graph_Param_Sp.PARAM_BEGIN_DATE);
+                var end_date = new SqlParameter("@PARAM_END_DATE", _Set_Graph_Param_Sp.PARAM_END_DATE);
                 var service_id = new SqlParameter("@PARAM_SERVICE_ID", _Set_Graph_Param_Sp.PARAM_SERVICE_ID);
 
-                List<like_add_set_update_return_sp> _response = _context.AddUpdateSetReturnSP.FromSqlRaw
-                ("EXEC [fbc].[like_get_questions_by_device_graph] @PARAM_BEGIN_DATE, @PARAM_END_DATE, @PARAM_SERVICE_ID", begin_date, end_date, service_id).ToList();
+                List<like_get_reaction_records_by_service_id_sp> _response = _context.GetReactionRecordsByServiceIdSP.FromSqlRaw
+                ("EXEC [fbc].[like_get_reaction_records_by_service_id] @PARAM_BEGIN_DATE, @PARAM_END_DATE, @PARAM_SERVICE_ID", begin_date, end_date, service_id).ToList();
                 return Json(_response);
             }
             catch (Exception ex)

@@ -1740,3 +1740,4 @@ D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Adm
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DevicesGraph.cshtml.g.cs
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\QuestionsGraph.cshtml.g.cs
 D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\QuestionDevicesGraph.cshtml.g.cs
+D:\HR Projects\FBCLikeOrNot\FBCLikeOrNot\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ReactionRecords.cshtml.g.cs

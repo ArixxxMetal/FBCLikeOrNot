@@ -40,6 +40,11 @@ namespace FBCLikeOrNot.Controllers
             return View();
         }
 
+        public IActionResult ReactionRecords()
+        {
+            return View();
+        }
+
         public IActionResult Devices()
         {
             return View();

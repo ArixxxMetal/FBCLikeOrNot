@@ -41,6 +41,23 @@ namespace FBCLikeOrNot.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetDevicesByServiceId([FromBody] like_get_graph_param_sp _Set_Graph_Param_Sp)
+        {
+            try
+            {
+                var service_id_param = new SqlParameter("@PARAM_SERVICE_ID", _Set_Graph_Param_Sp.PARAM_SERVICE_ID);
+                List<like_get_device_by_service_id> _response = _context.GetDevicesByServiceIdSP.FromSqlRaw
+                ("EXEC fbc.like_get_devices_by_service_id @PARAM_SERVICE_ID", service_id_param).ToList();
+                return Json(_response);
+            }
+            catch (Exception ex)
+            {
+                var ExceptionResponse = ex.Message;
+                return Json(ExceptionResponse);
+            }
+        }
+
+        [HttpPost]
         public JsonResult AddDevice([FromBody] like_add_new_device_param_sp _Add_New_Device_Param_Sp)
         {
             try
