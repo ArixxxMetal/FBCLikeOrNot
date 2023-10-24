@@ -17,6 +17,23 @@ app.controller("DevicesGraphController", function ($scope, $http) {
     $scope.service_id_model = null;
     $scope.TotalReactionList = [];
 
+    $scope.DownloadReport = function () {
+
+        //Generate report name by select value
+        service_list = $scope.ServiceList;
+        const service_id = $scope.service_id_model;
+        const service_object = service_list.find(obj => obj.id === service_id);
+
+        console.log(service_object);
+        // Validate if data was filtered
+        var Query = "SELECT * INTO XLSX('" + service_object.nameservice + "-Reacciones Por Dispositivo.xlsx',{headers:true}) FROM ?";
+
+        // To download the recor to excel
+        alasql(Query, [$scope.TotalReactionList]);
+
+    }
+    // End function
+
     $scope.GenerateGraph = function () {
         $scope.TotalReactionList = [];
 

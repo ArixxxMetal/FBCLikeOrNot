@@ -23,6 +23,27 @@ app.controller("QuestionDevicesGraphController", function ($scope, $http) {
         GetDevicesByArea();
     }
 
+    $scope.DownloadReport = function () {
+
+        //Generate report name by select value
+        let service_list = $scope.ServiceList;
+        const service_id = $scope.service_id_model;
+        const service_object = service_list.find(obj => obj.id === service_id);
+
+
+        let device_list = $scope.DeviceList;
+        const device_id = $scope.device_id_model;
+        const device_object = device_list.find(obj => obj.id === device_id);
+
+        // Validate if data was filtered
+        var Query = "SELECT * INTO XLSX('" + service_object.nameservice + "_" + device_object.namedevice + "-Reacciones Por Preguntas.xlsx',{headers:true}) FROM ?";
+
+        // To download the recor to excel
+        alasql(Query, [$scope.TotalReactionList]);
+
+    }
+    // End function
+
     $scope.GenerateGraph = function () {
         $scope.TotalReactionList = [];
 

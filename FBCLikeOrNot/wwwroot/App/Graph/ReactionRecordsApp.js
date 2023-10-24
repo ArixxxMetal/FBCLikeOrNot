@@ -18,12 +18,28 @@ app.controller("ReactionRecordsController", function ($scope, $http) {
     $scope.device_id_model = null;
     $scope.TotalReactionList = [];
 
+    $scope.DownloadReport = function () {
+
+        //Generate report name by select value
+        let service_list = $scope.ServiceList;
+        const service_id = $scope.service_id_model;
+        const service_object = service_list.find(obj => obj.id === service_id);
+
+        // Validate if data was filtered
+        var Query = "SELECT * INTO XLSX('" + service_object.nameservice + "-Historial.xlsx',{headers:true}) FROM ?";
+
+        // To download the recor to excel
+        alasql(Query, [$scope.RecordsList]);
+
+    }
+    // End function
+
+
     $scope.GetDeviceList = function () {
 
         var start_date = moment().subtract(7, 'days');
         var end_date = moment();
         GetReactionRecords(start_date, end_date);
-        //GetDevicesByArea();
     }
 
     $scope.GenerateGraph = function () {
@@ -68,6 +84,18 @@ app.controller("ReactionRecordsController", function ($scope, $http) {
 
             $scope.RecordsList = response.data;
             console.log($scope.RecordsList);
+
+            //Generate report name by select value
+            let records_list = $scope.RecordsList;
+
+            let records_object = records_list.filter(obj => obj.namereaction === "GOOD");
+            $scope.good_reaction_count = records_object.length;
+
+            records_object = records_list.filter(obj => obj.namereaction === "NEUTRAL");
+            $scope.neutral_reaction_count = records_object.length;
+
+            records_object = records_list.filter(obj => obj.namereaction === "BAD");
+            $scope.bad_reaction_count = records_object.length;
             GetDevicesByArea();
 
         }, function errorCallBack(response) {

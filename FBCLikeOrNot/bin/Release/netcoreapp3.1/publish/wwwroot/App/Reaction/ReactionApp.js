@@ -11,6 +11,8 @@ app.controller("ReactionController", function ($scope, $http) {
 
     $scope.service_name = "";
     $scope.device_name = "";
+    $scope.current_question_assigned_length = 0;
+    $scope.counter_questions = $scope.current_question_assigned_length + 1;
 
     $scope.Access = function () {
         LoginAccess()
@@ -31,7 +33,100 @@ app.controller("ReactionController", function ($scope, $http) {
 
     $scope.SetLogReaction = function (_reaction) {
         
-        SetReaction($('#device_id').html(), _reaction.idreaction)
+
+        try {
+            // Get a reference to the element
+            var flipCardElement = $("#myFlipCard");
+
+
+            // Toggle the class to add it back
+            flipCardElement.toggleClass("slide_left_animation");
+
+        } catch {
+            console.error("An error occurred:", error.message);
+        }
+        
+        SetReaction($('#device_id').html(), _reaction.idreaction);
+    }
+
+    //$scope.ChangeQuestionReaction = function () {
+    //    debugger
+    //    let max_length = $scope.QuestionAssignedList.length - 1;
+    //    let current_length = 0;
+
+    //    current_length = $scope.current_question_assigned_length + 1;
+
+    //    if ($scope.current_question_assigned_length == max_length) {
+
+    //        $scope.current_question_assigned_length = 0;
+
+    //        $scope.QuestionTitle = $scope.QuestionAssignedList[0].descriptionquestion;
+
+    //        Swal.fire({
+    //            position: 'center',
+    //            width: 600,
+    //            icon: 'success',
+    //            title: 'Muchas Gracias Por Participar!',
+    //            imageUrl: '/img/Reactions/blink_reaction.gif',
+    //            imageWidth: 300,
+    //            showConfirmButton: false,
+    //            timer: 1500,
+    //        })
+    //    }
+    //    else {
+
+    //        $scope.QuestionTitle = $scope.QuestionAssignedList[current_length].descriptionquestion;
+
+    //        $scope.current_question_assigned_length = $scope.current_question_assigned_length + 1;
+    //    }
+
+    //}
+
+    function ChangeQuestionReaction() {
+        
+        let max_length = $scope.QuestionAssignedList.length - 1;
+        let current_length = 0;
+
+        current_length = $scope.current_question_assigned_length + 1;
+        //$scope.counter_questions = $scope.counter_questions + 1
+        try {
+            
+            if ($scope.current_question_assigned_length == max_length) {
+
+                Swal.fire({
+                    position: 'center',
+                    width: 600,
+                    icon: 'success',
+                    title: 'Muchas Gracias Por Participar!',
+                    imageUrl: '/img/Reactions/blink_reaction.gif',
+                    imageWidth: 300,
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
+
+                $scope.current_question_assigned_length = 0;
+                $scope.counter_questions = $scope.current_question_assigned_length + 1;
+                $scope.QuestionTitle = $scope.QuestionAssignedList[0].descriptionquestion;
+
+            }
+            else {
+
+                $scope.QuestionTitle = $scope.QuestionAssignedList[current_length].descriptionquestion;
+                $scope.current_question_assigned_length = $scope.current_question_assigned_length + 1;
+                $scope.counter_questions = $scope.counter_questions + 1
+            }
+
+        } catch {
+            
+            console.error("An error occurred:", error.message);
+        }
+
+         setTimeout(function () {
+
+            $("#myFlipCard").removeClass("slide_left_animation");
+
+         }, 1000);
+
     }
 
     function GetAllReactions() {
@@ -46,23 +141,52 @@ app.controller("ReactionController", function ($scope, $http) {
         }).then(function (response) {
             
             $scope.ReactionList = response.data;
-            console.log($scope.ReactionList);
-            //GetQuestion()
+            //console.log($scope.ReactionList);         
 
         }, function errorCallBack(response) {
-            console.error("Error get data");
+            console.error("Error to get data");
+            console.log(response.data);
+        })
+        // end httpRequest
+    }
+
+    function GetQuestionsByServiceId(service_id) {
+        
+        var Questions_Parameter = {
+            PARAM_SERVICE_ID: parseInt(service_id)
+        }
+        // start httpRequest 
+        $http({
+            method: "POST",
+            url: "/Question/GetQuestionsById",
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
+            data: Questions_Parameter
+        }).then(function (response) {
+
+            let current_length = $scope.current_question_assigned_length;
+
+            $scope.QuestionAssignedList = response.data;
+            console.log($scope.QuestionAssignedList);
+            $scope.QuestionTitle = $scope.QuestionAssignedList[current_length].descriptionquestion;
+
+        }, function errorCallBack(response) {
+            console.error("Error getting data");
             console.log(response.data);
         })
         // end httpRequest
     }
 
     function SetReaction(iddevice, idreaction) {
-        // Call Fields validation 
-        
+
+        let current_length = $scope.current_question_assigned_length;
+        let id_log_question = $scope.QuestionAssignedList[current_length].id;
+
         Data = {
             PARAM_DEVICE_ID: parseInt(iddevice),
-            PARAM_REACTION_ID: idreaction
+            PARAM_REACTION_ID: idreaction,
+            PARAM_QUESTION_LOG_ID: parseInt(id_log_question)
         }
+
         // start httpRequest 
         $http({
             method: "POST",
@@ -70,30 +194,34 @@ app.controller("ReactionController", function ($scope, $http) {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             data: Data
         }).then(function (response) {
-            debugger
-            $scope.QuestionDevice = response.data;
-            console.log($scope.QuestionDevice);
-            //document.getElementById('question_area').focus()
-            if (response.data[0].was_done == true) {
-                Swal.fire({
-                    position: 'top',
-                    icon: 'success',
-                    title: 'Muchas Gracias Por participar! ;)',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
 
+            $scope.QuestionDevice = response.data;
+
+            if (response.data[0].was_done == true) {
+                ChangeQuestionReaction();
             }
             else {
+                console.log(response.data);
+                let error_response = response.data;
 
+                Swal.fire({
+                    position: 'center',
+                    width: 600,
+                    icon: 'success',
+                    title: error_response,
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
             }
 
         }, function errorCallBack(response) {
-            console.error("Error get data");
+            console.error("Error to get data");
             console.log(response.data);
         })
         // end httpRequest
+
     }
+
 
     function refreshAt(hours, minutes, seconds) {
         var now = new Date();
@@ -125,4 +253,6 @@ app.controller("ReactionController", function ($scope, $http) {
     refreshAt(16, 26, 0);
     refreshAt(17, 26, 0);
     refreshAt(18, 26, 0);
+
+    setTimeout(GetQuestionsByServiceId($('#service_id').html()), 1000);
 });

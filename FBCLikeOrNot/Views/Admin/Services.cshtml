@@ -38,17 +38,15 @@
                             <tr>
                                 <th scope="col">Asignar Pregunta</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Pregunta</th>
                                 <th scope="col">Es Activo</th>
                                 <th scope="col">Creado Por</th>
                                 <th scope="col">Fecha De Creacion</th>
                             </tr>
                         </thead>
                         <tbody ng-repeat="service in ServiceList | filter: SrchString">
-                            <tr ng-dblclick="ShowUpdateModal(service)">
-                                <th><button class="btn btn-icon btn-inverse-primary" ng-click="ShowSetQuestionModal(service)"><i class="fa fa-pencil"></i></button></th>
-                                <th>{{ service.nameservice }}</th>
-                                <td>{{ service.questionservice }}</td>
+                            <tr>
+                                <th><button class="btn btn-icon btn-inverse-primary" ng-click="ShowUpdateModal(service)"><i class="fa fa-pencil"></i></button></th>
+                                <th>{{ service.nameservice }}</th>                      
                                 <td><i class="{{ service.isactiveservice ? 'fa fa-check-square text-success': 'fa fa-check-square text-danger' }} "></i></td>
                                 <td>{{ service.createbyservice }}</td>
                                 <td>{{ service.createdateservice | date: 'dd MMM, yyyy  hh:mm a' }}</td>
@@ -60,40 +58,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="js_SetQuestion" tabindex="-1" role="dialog" aria-labelledby="defaultModal" aria-hidden="true">
-
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Asignar Pregunta</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="js_SetQuestionForm" class="row">
-
-                        <div class="form-group col-lg-12">
-                            <label>Preguntas Creadas</label>
-                            <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestion()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
-                                <option value="" disabled>-- Seleccionar --</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-lg-12">
-                            <label>Pregunta Del Area</label>
-                            <input type="text" name="jv_description_question" ng-model="selected_description_question" class="form-control" />
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" ng-click="AssignQuestion()">Asignar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- begin New Service modal -->
     <div id="js_CreateService" class="modal fade">
@@ -116,23 +80,6 @@
                         <div class="form-group col-lg-6">
                             <label>Creado Por</label>
                             <input type="text" name="jv_create_by_add" ng-model="add_create_by" class="form-control" />
-                        </div>
-
-                        @*<div class="form-group col-lg-12">
-                            <label>Pregunta Del Area</label>
-                            <input type="text" name="jv_description_question_add" ng-model="add_description_question" class="form-control" />
-                        </div>*@
-
-                        <div class="form-group col-lg-12">
-                            <label>Preguntas Creadas</label>
-                            <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestionAdd()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
-                                <option value="" disabled>-- Seleccionar --</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-lg-12">
-                            <label>Pregunta Del Area</label>
-                            <input type="text" name="jv_description_question_add" ng-model="add_description_question" class="form-control" />
                         </div>
 
                     </form>
@@ -167,23 +114,6 @@
                         <div class="form-group col-lg-6">
                             <label>Creado Por</label>
                             <input type="text" name="jv_create_by_update" ng-model="update_create_by" class="form-control" disabled />
-                        </div>
-
-                        @*<div class="form-group col-lg-12">
-                            <label>Pregunta Del Area</label>
-                            <input type="text" name="jv_description_question_update" ng-model="update_description_question" class="form-control" />
-                        </div>*@
-
-                        <div class="form-group col-lg-12">
-                            <label>Preguntas Creadas</label>
-                            <select class="form-control" ng-model="dropdown_question" ng-change="SelectQuestionUpdate()" ng-options="c.descriptionquestion as c.descriptionquestion for c in QuestionList">
-                                <option value="" disabled>-- Seleccionar --</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-lg-12">
-                            <label>Pregunta Del Area</label>
-                            <input type="text" name="jv_description_question_update" ng-model="update_description_question" class="form-control" />
                         </div>
 
                     </form>

@@ -170,7 +170,7 @@ body {
 
 .button_success {
     font-size: 80px;
-    padding: 0.75em 1.75em;
+    padding: 0.75em 1.30em;
     background-color: white;
     color: var(--clr-neon-success);
     font-weight: bold;
@@ -211,7 +211,7 @@ body {
 
 .button_warning {
     font-size: 80px;
-    padding: 0.75em 1.75em;
+    padding: 0.75em 1.30em;
     background-color: white;
     color: var(--clr-neon-warning);
     font-weight: bold;
@@ -254,7 +254,7 @@ body {
 
 .button_danger {
     font-size: 80px;
-    padding: 0.75em 1.75em;
+    padding: 0.75em 1.30em;
     background-color: white;
     color: var(--clr-neon-danger);
     font-weight: bold;

@@ -102,12 +102,11 @@ namespace FBCLikeOrNot.Controllers
         {
             try
             {
-                var service_id = new SqlParameter("@PARAM_SERVICE_ID", _Set_Question_Param_Sp.PARAM_SERVICE_ID);
                 var service_question = new SqlParameter("@PARAM_DESCRIPTION_QUESTION", _Set_Question_Param_Sp.PARAM_DESCRIPTION_QUESTION);
                 var create_by = new SqlParameter("@PARAM_CREATE_BY", _Set_Question_Param_Sp.PARAM_CREATE_BY);
 
                 List<like_add_set_update_return_sp> _response = _context.AddUpdateSetReturnSP.FromSqlRaw
-                ("EXEC fbc.like_set_question @PARAM_SERVICE_ID, @PARAM_DESCRIPTION_QUESTION, @PARAM_CREATE_BY", service_id, service_question, create_by).ToList();
+                ("EXEC fbc.like_set_question @PARAM_DESCRIPTION_QUESTION, @PARAM_CREATE_BY", service_question, create_by).ToList();
                 return Json(_response);
             }
             catch (Exception ex)

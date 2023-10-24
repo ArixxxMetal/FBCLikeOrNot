@@ -1,0 +1,105 @@
+﻿body {
+}
+
+
+$bgColor: blue;
+$textHoverColor: white;
+$debug: false;
+
+.button_waves {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    overflow: if($debug, unset, hidden);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    padding: 0.75em 1em;
+    color: $bgColor;
+    border: 0.15em solid $bgColor;
+    border-radius: calc(0.75em + 0.5em + 0.15em);
+    transition: 4s;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: -1.5em;
+        z-index: -1;
+        width: 200%;
+        aspect-ratio: 1;
+        border: if($debug, inherit, none);
+        border-radius: 40%;
+        background-color: rgba($bgColor, 0.25);
+        transition: 4s;
+    }
+
+    &:before {
+        left: -80%;
+        transform: translate3d(0, 5em, 0) rotate(-340deg);
+    }
+
+    &:after {
+        right: -80%;
+        transform: translate3d(0, 5em, 0) rotate(390deg);
+    }
+
+    &:hover,
+    &:focus {
+        color: white;
+
+        &:before, &:after {
+            transform: none;
+            background-color: rgba($bgColor, 0.75);
+        }
+    }
+}
+
+
+/* Define the CSS animation */
+@keyframes changeColor {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+/* Define the CSS animation */
+@keyframes changeColor {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+/* Apply the animation to the button */
+.animated-button {
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    border: none;
+    cursor: pointer; /* Add a pointer cursor to indicate the button is clickable */
+    font-size: 16px;
+    color: white;
+    animation: changeColor 4s infinite; /* Apply the animation for 4 seconds, and repeat it infinitely */
+}
+
+/* Define the animation for :active state (when button is clicked) */
+.animated-button:active {
+    animation: none; /* Turn off the normal animation */
+    background-color: yellow; /* Change the background color when clicked */
+}

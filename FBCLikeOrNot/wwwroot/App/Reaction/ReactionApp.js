@@ -12,6 +12,7 @@ app.controller("ReactionController", function ($scope, $http) {
     $scope.service_name = "";
     $scope.device_name = "";
     $scope.current_question_assigned_length = 0;
+    $scope.counter_questions = $scope.current_question_assigned_length + 1;
 
     $scope.Access = function () {
         LoginAccess()
@@ -87,6 +88,7 @@ app.controller("ReactionController", function ($scope, $http) {
         let current_length = 0;
 
         current_length = $scope.current_question_assigned_length + 1;
+        //$scope.counter_questions = $scope.counter_questions + 1
         try {
             
             if ($scope.current_question_assigned_length == max_length) {
@@ -103,6 +105,7 @@ app.controller("ReactionController", function ($scope, $http) {
                 })
 
                 $scope.current_question_assigned_length = 0;
+                $scope.counter_questions = $scope.current_question_assigned_length + 1;
                 $scope.QuestionTitle = $scope.QuestionAssignedList[0].descriptionquestion;
 
             }
@@ -110,6 +113,7 @@ app.controller("ReactionController", function ($scope, $http) {
 
                 $scope.QuestionTitle = $scope.QuestionAssignedList[current_length].descriptionquestion;
                 $scope.current_question_assigned_length = $scope.current_question_assigned_length + 1;
+                $scope.counter_questions = $scope.counter_questions + 1
             }
 
         } catch {

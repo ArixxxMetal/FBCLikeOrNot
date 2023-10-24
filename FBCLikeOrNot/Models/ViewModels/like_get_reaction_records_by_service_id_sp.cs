@@ -11,8 +11,8 @@ namespace FBCLikeOrNot.Models.ViewModels
         public DateTime CreateDate { get; set; }
         public int Id_reaction { get; set; }
         public string Namereaction { get; set; }
-        public int Id_question_log { get; set; }
-        public string Descriptionquestion { get; set; }          
+        public int? Id_question_log { get; set; }
+        public string? Descriptionquestion { get; set; }          
 
     }
 }

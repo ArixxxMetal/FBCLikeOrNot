@@ -30,12 +30,16 @@
                             <option value="" disabled>-- Servicio --</option>
                         </select>
                     </div>
-@*                    <div class="d-flex align-items-center text-center" style="margin-left:2%">
+                    @*<div class="d-flex align-items-center text-center" style="margin-left:2%">
                         <select class="form-control" ng-model="device_id_model" ng-change="GenerateGraph()" ng-options="c.id as c.namedevice for c in DeviceList">
                             <option value="" disabled>-- Dispositivo --</option>
                         </select>
                     </div>*@
-
+                    <div class="d-flex align-items-center text-center" style="margin-left:1%">
+                        <button class="btn btn-success" title="Descargar Excel" ng-click="DownloadReport()">
+                            <i class="fa fa-file-excel-o"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,16 +47,20 @@
         <div class="card card-statistics">
             <div class="card-body">
                 <div class="table table-responsive table-hover table-borderless">
+                    <span style="color:black; margin-left:1%;"><strong>Total: {{ RecordsList.length }}</strong> </span>
+                    <span style="color:black; margin-left:3%;"><strong>Reacciones Buenas: {{ good_reaction_count }}</strong> </span>
+                    <span style="color:black; margin-left:3%;"><strong>Reacciones Neutrales: {{ neutral_reaction_count }}</strong> </span>
+                    <span style="color:black; margin-left:3%;"><strong>Reacciones Malas: {{ bad_reaction_count }}</strong> </span>
                     <table class="table mb-0">
                         <thead class="bg-primary" style="color:aliceblue">
                             <tr>
                                 <th scope="col">Dispositivo</th>
-                                <th scope="col">Teaccion</th>
+                                <th scope="col">Reaccion</th>
                                 <th scope="col">Pregunta</th>
                                 <th scope="col">Fecha</th>
                             </tr>
                         </thead>
-                        <tbody ng-repeat="record in RecordsList | filter: SrchString">
+                        <tbody ng-repeat="record in RecordsList">
                             <tr>
                                 <th>{{ record.namedevice }}</th>
                                 <th>{{ record.namereaction }}</th>
@@ -73,6 +81,8 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alasql/2.2.2/alasql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
     <script src="~/App/Graph/ReactionRecordsApp.js"></script>
 }
 

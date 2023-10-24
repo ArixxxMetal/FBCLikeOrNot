@@ -65,5 +65,9 @@ namespace FBCLikeOrNot.Controllers
             return View();
         }
 
+        public IActionResult QuestionSettings()
+        {
+            return View();
+        }
     }
 }

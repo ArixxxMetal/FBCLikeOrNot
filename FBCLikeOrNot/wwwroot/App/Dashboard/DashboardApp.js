@@ -32,6 +32,17 @@ app.controller("DashboardController", function ($scope, $http) {
         SetReaction($('#device_id').html(), _reaction.idreaction)
     }
 
+    $scope.DownloadReport = function () {
+
+        // Validate if data was filtered
+        var Query = "SELECT * INTO XLSX('Reporte-Dashboard.xlsx',{headers:true}) FROM ?";
+
+        // To download the recor to excel
+        alasql(Query, [$scope.TotalReactionList]);
+
+    }
+    // End function
+
     function GetTotalReactionList() {
         // Call Fields validation 
         $scope.TotalReactionList = [];
